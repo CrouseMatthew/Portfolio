@@ -1,4 +1,4 @@
 Portfolio
 =========
 
-Portfolio website for my development buisness. 
+Portfolio website for my development business. 
