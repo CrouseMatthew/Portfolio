@@ -1,0 +1,30 @@
+{
+  "name": "Portfolio",
+  "version": "0.0.0",
+  "description": "portfolio site",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.8.0",
+    "express": "^4.8.6",
+    "morgan": "^1.3.0",
+    "nodemailer": "^1.2.2",
+    "serve-static": "^1.5.4",
+    "watchify": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "bfy": "browserify --t hbsfy js/main.js -o public/js/bundle.js -v",
+    "wfy": "watchify --t hbsfy js/main.js -o public/js/bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CrouseMatthew/Portfolio.git"
+  },
+  "author": "Matt Crouse",
+  "license": "MSI",
+  "bugs": {
+    "url": "https://github.com/CrouseMatthew/Portfolio/issues"
+  },
+  "homepage": "https://github.com/CrouseMatthew/Portfolio"
+}
