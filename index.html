@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--[if IE 7]><html lang="en" class="ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><html lang="en"><![endif]-->
-<!--[if !IE]><html lang="en"><![endif]-->
 <head>
 	<meta charset="utf-8">
 	<script src="js/lib/modernizr.js"></script>
@@ -21,7 +16,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<!-- Essential stylesheets -->
-	<link rel="stylesheet" href="css/lib/magnific-popup.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/lib/magnific-popups.css">
 	<link rel="stylesheet" href="css/lib/bxslider.css">
 	<link rel="stylesheet" href="css/lib/owl.carousel.css">
 	<link rel="stylesheet" href="css/lib/owl.theme.css">
@@ -245,7 +241,7 @@
 
 
 				<!-- Work item -->
-				<div class="grid-ms">
+<!-- 				<div class="grid-ms">
 					<div class="overlay-item">
 						<a class="popup-gallery" href="images/portfolio-detail-4.jpg">
 							<span class="o-hover">
@@ -260,11 +256,11 @@
 						<h3>Databases</h3>
 						<p>Database Examples</p>
 					</div>
-				</div>
+				</div> -->
 
 
 				<!-- Work item -->
-				<div class="grid-ms">
+<!-- 				<div class="grid-ms">
 					<div class="overlay-item">
 						<a class="popup" href="images/portfolio-detail-5.jpg">
 							<span class="o-hover">
@@ -279,11 +275,11 @@
 						<h3>Landscape Photos</h3>
 						<p>Photography</p>
 					</div>
-				</div>
+				</div> -->
 
 
 				<!-- Work item -->
-				<div class="grid-ms">
+<!-- 				<div class="grid-ms">
 					<div class="overlay-item">
 						<a class="popup-gallery" href="images/portfolio-detail-6.jpg">
 							<span class="o-hover">
@@ -298,7 +294,7 @@
 						<h3>IT Services</h3>
 						<p>Windos and Linux Based IT</p>
 					</div>
-				</div>
+				</div> -->
 
 
 			</div>
@@ -433,21 +429,24 @@
 			<div class="six col offset-by-one">
 
 
-				<!-- Succes message after sending the form, see also the php file around line 90 -->
+
 				<div id="message" class="c-message"></div>
 
 
 				<!-- Form -->
-				<form method="post" action="contact.php" name="contactform" id="contactform" class="form form-stacked c-form">
+				<form method="post" action="/test" name="contactform" id="contactform" class="form form-stacked c-form">
 					<fieldset>
 						<input name="name" type="text" id="name" placeholder="Your Name" />
 						<input name="email" type="text" id="email" placeholder="Your E-mail" />
 						<textarea name="comments" id="comments" placeholder="Message"></textarea>
 						<input name="verify" type="text" id="verify" size="4" value="" placeholder="3 + 1 =" />
+						<div class= "subButton">
 						<input type="submit" class="submit btn outline" id="submit" value="Send message" />
+					</div>
 					</fieldset>
 				</form>
 			</div>
+
 
 
 			<!-- Contact details -->
@@ -480,8 +479,14 @@
 
 
 		</div>
-	</section>
+<!-- <div id="sentMessage">
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Your message has been sent successfully.
+    </div>
+</div> -->
 
+	</section>
 
 
 
@@ -512,7 +517,6 @@
 	<!-- Javascript -->
 	<script src="js/lib/jquery.min.js"></script>
 	<script src="js/lib/retina.min.js"></script>
-	<script src="js/lib/jquery.magnific-popup.min.js"></script>
 	<script src="js/lib/jquery.bxslider.min.js"></script>
 	<script src="js/lib/owl.carousel.min.js"></script>
 	<script src="js/lib/jquery.fitvids.js"></script>

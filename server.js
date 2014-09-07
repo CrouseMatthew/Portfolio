@@ -1,56 +1,47 @@
-var http = require("http"),
-    url = require("url"),
-    path = require("path"),
-    fs = require("fs");
-    $ = require("jquery"),
-    nodemailer = require('nodemailer');
-    port = process.argv[2] || 8888;
 
+var express = require('express');
+var app = express();
+var http = require('http');
+var httpServer = http.Server(app);
+var nodemailer = require('nodemailer');
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use( bodyParser.urlencoded() ); // to support URL-encoded bodies
 
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'mscrouse@gmail.com',
-        pass: 'space.ONE123'
-    }
-});
-transporter.sendMail({
-    from: 'mscrouse@gmail.com',
-    to: 'mscrouse@gmail.com',
-    subject: 'Portfolio Site Response',
-    text: 'hello world!'
+console.log("dir name: ",__dirname);
+app.use(express.static(__dirname+'/public'));
+
+app.get('/', function(req, res){
+    res.sendfile(__dirname + '/index.html');
 });
 
+app.post('/test', function (rec, res){
 
-http.createServer(function(request, response) {
+console.log("the request ->", rec.body);
 
-  var uri = url.parse(request.url).pathname
-    , filename = path.join(process.cwd(), uri);
-  
-  path.exists(filename, function(exists) {
-    if(!exists) {
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write("404 Not Found\n");
-      response.end();
-      return;
-    }
-
-    if (fs.statSync(filename).isDirectory()) filename += '/index.html';
-
-    fs.readFile(filename, "binary", function(err, file) {
-      if(err) {        
-        response.writeHead(500, {"Content-Type": "text/plain"});
-        response.write(err + "\n");
-        response.end();
-        return;
-      }
-
-      response.writeHead(200);
-      response.write(file, "binary");
-      response.end();
+if(rec.body.verify === '4'){
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'mscrouse@gmail.com',
+            pass: 'space.ONE123'
+        }
     });
-  });
-}).listen(parseInt(port, 10));
+    transporter.sendMail({
+        from: 'mscrouse@gmail.com',
+        to: 'mscrouse@gmail.com',
+        subject: "Portfolio Site Contact",
+        text: 'Hello a person named ' + rec.body.name + " has sent you the following message: " +
+        "\n\n" + rec.body.comments +"\n\n" +
+        rec.body.email + "\n"
+    });
+};
 
-console.log("Static file server running at\n  => http://localhost: " + port + "/\nCTRL + C to shutdown");
+});
+
+app.listen(process.env.PORT || 8888);
+console.log("Running server on ", 8888);
+
+
+
